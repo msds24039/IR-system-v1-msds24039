@@ -339,13 +339,14 @@ class RetrievalSystem:
 def main():
     # 1. Initialize System
     log("Initializing CS516 IR System...")
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))     
+    ROOT_DIR = os.path.dirname(BASE_DIR)                      # project root
+    DATA_PATH = os.path.join(ROOT_DIR, "dataset", "Articles.csv")
     
-    # NOTE: You would use the path provided in your prompt:
+    df = pd.read_csv(DATA_PATH)
+
     filepath = r"C:\Users\user\Documents\Sem 3\HW3\dataset\Articles.csv"
-    
-    # For demonstration purposes, I will create a dummy CSV file to make this code runnable right now
-    # In your local jupyter, you can skip this 'create_dummy_csv' step.
-    # create_dummy_csv(filepath) 
     
     docs = load_data(filepath)
     if not docs:
@@ -432,7 +433,11 @@ nltk.download('wordnet', quiet=True)
 nltk.download('omw-1.4', quiet=True) # Open Multilingual Wordnet (needed for newer NLTK)
 
 class IRConfig:
-    DATA_PATH = r"C:\Users\user\Documents\Sem 3\HW3\dataset\Articles.csv"
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))     
+    ROOT_DIR = os.path.dirname(BASE_DIR)                      # project root
+    DATA_PATH = os.path.join(ROOT_DIR, "dataset", "Articles.csv")
+    
+    df = pd.read_csv(DATA_PATH)
     STOPWORDS = set(stopwords.words('english'))
     # CHANGE: Swapping Stemmer for Lemmatizer
     LEMMATIZER = WordNetLemmatizer() 
@@ -663,12 +668,9 @@ def main():
     # 1. Initialize System
     log("Initializing CS516 IR System...")
     
-    # NOTE: You would use the path provided in your prompt:
-    filepath = r"C:\Users\user\Documents\Sem 3\HW3\dataset\Articles.csv"
-    
-    # For demonstration purposes, I will create a dummy CSV file to make this code runnable right now
-    # In your local jupyter, you can skip this 'create_dummy_csv' step.
-    # create_dummy_csv(filepath) 
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))     
+    ROOT_DIR = os.path.dirname(BASE_DIR)                      # project root
+    DATA_PATH = os.path.join(ROOT_DIR, "dataset", "Articles.csv")
     
     docs = load_data(filepath)
     if not docs:
@@ -751,7 +753,9 @@ if __name__ == "__main__":
 import re
 from collections import Counter
 
-filepath = r"C:\Users\user\Documents\Sem 3\HW3\dataset\Articles.csv"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))     
+ROOT_DIR = os.path.dirname(BASE_DIR)                      # project root
+file_path = os.path.join(ROOT_DIR, "dataset", "Articles.csv")
 docs = load_data(filepath)
 
 class CorpusAnalyzer2:
@@ -885,11 +889,9 @@ def main():
     log("Initializing CS516 IR System...")
     
     # NOTE: You would use the path provided in your prompt:
-    filepath = r"C:\Users\user\Documents\Sem 3\HW3\dataset\Articles.csv"
-    
-    # For demonstration purposes, I will create a dummy CSV file to make this code runnable right now
-    # In your local jupyter, you can skip this 'create_dummy_csv' step.
-    # create_dummy_csv(filepath) 
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))     
+    ROOT_DIR = os.path.dirname(BASE_DIR)                      # project root
+    file_path = os.path.join(ROOT_DIR, "dataset", "Articles.csv")
     
     docs = load_data(filepath)
     if not docs:
